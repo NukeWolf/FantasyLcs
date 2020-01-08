@@ -1,12 +1,15 @@
 {% extends "main/header.html" %}
 
 {% block content %}
+{% if not user.is_authenticated %}
+<div style="margin: 30px auto auto; width: 60px;"></div>
+	<div>
+		<p>
+	You need to <a href="/login"><strong>login</strong></a> to access this page.
+		</p>
+	</div>
+{% else %}
+<p>Nice</p>
+{% endif %}
 
-{%for tut in tutorials%}	
-	<p>{{tut.tutorial_title}}</p>
-	<p>{{tut.tutorial_published}}</p>
-	<br><br>
-	{% endfor %}
-
-
-{% endblock %}
+{% endblock %} 

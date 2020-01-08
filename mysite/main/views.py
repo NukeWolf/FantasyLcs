@@ -31,6 +31,7 @@ def register(request):
 
 
 def logout_request(request):
+	
 	logout(request)
 	messages.info(request, "Logged Out success")
 	return redirect("main:homepage")
@@ -54,3 +55,6 @@ def login_request(request):
 	return render(request,
 				"main/login.html",
 				context = {'form': form})
+
+def changeRoster(request):
+	return render(request, "main/changeRoster.html")

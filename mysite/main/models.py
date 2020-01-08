@@ -9,3 +9,18 @@ class Tutorial(models.Model):
 
 	def __str__(self):
 		return self.tutorial_title
+
+class League(models.Model):
+	league_name = models.CharField(max_length=50)
+	league_player_size = models.CharField(max_length=50)
+	#league_owner = ForeignKey(User)
+	leage_team_owners = models.CharField(max_length=50)
+	league_teams = models.ForeignKey("Team",on_delete=models.CASCADE)
+
+
+class Team(models.Model):
+	team_name = models.CharField(max_length = 50)
+	team_ownerID = models.CharField(max_length=50)
+	team_players = models.CharField(max_length=50)
+	def __str__(self):
+		return self.team_name
