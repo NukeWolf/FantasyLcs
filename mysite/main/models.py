@@ -36,6 +36,7 @@ class Team(models.Model):
 	sup = models.CharField(max_length=50)
 	flex = models.CharField(max_length=50)
 	team = models.CharField(max_length=50,default=1)
+	bn1 = models.CharField(max_length=50)
 	bn2 = models.CharField(max_length=50)
 	bn3 = models.CharField(max_length=50)
 	wins = models.CharField(max_length=50)
