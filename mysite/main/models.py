@@ -21,14 +21,20 @@ class League(models.Model):
 	league_owner = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,default='')#,default=User.objects.get(username='nukewolf'))
 	league_teams = models.ManyToManyField("Team")
 	league_is_drafted = models.BooleanField(default=False)
+	league_public = models.BooleanField(default=False)
+	league_visible = models.BooleanField(default=False)
+	league_password = models.CharField(max_length=200)
+
 	def __str__(self):
 		return self.league_name
 
 
 
+
 class Team(models.Model):
-	team_name = models.CharField(max_length=50,validators=TeamNameValidator(team_name))
-	team_owner = models.ForeignKey(get_user_model(),on_delete=models.CASCADE,default='')#,default=User.objects.get(username='nukewolf'))
+	team_league = models.CharField(max_length=50,default='')
+	team_name = models.CharField(max_length=50)
+	team_owner = models.ForeignKey(get_user_model(),on_delete=models.CASCADE,default='')
 	top = models.CharField(max_length=50)
 	jng = models.CharField(max_length=50)
 	mid = models.CharField(max_length=50)
@@ -44,3 +50,7 @@ class Team(models.Model):
 	tie = models.CharField(max_length=50)
 	def __str__(self):
 		return self.team_name
+	def getSelf(self):
+		return self
+	class Meta:
+		unique_together = ('team_league', 'team_name',)

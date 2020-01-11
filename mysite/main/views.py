@@ -58,3 +58,6 @@ def login_request(request):
 
 def changeRoster(request):
 	return render(request, "main/changeRoster.html")
+
+def createLeague(request):
+	return render(request,"main/createRoster.html")

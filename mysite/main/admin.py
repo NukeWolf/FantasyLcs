@@ -17,7 +17,7 @@ class TutorialAdmin(admin.ModelAdmin):
 class LeagueAdmin(admin.ModelAdmin):
 	fields = ["league_name","league_player_size","league_owner","league_teams","league_is_drafted"]
 class TeamAdmin(admin.ModelAdmin):
-	fields = ["team_name","team_owner","top","jng",'mid','bot','sup']
+	fields = ["team_league","team_name","team_owner","top","jng",'mid','bot','sup']
 
 
 
